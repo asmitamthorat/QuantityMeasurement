@@ -47,6 +47,8 @@ namespace QuantityMeasurementfinal
                     return 1000;
                 case Units.FAHRNEEIT:
                     return 1;
+                case Units.CELSIUS:
+                    return 2.12;
 
 
             }

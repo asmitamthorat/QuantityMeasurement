@@ -295,6 +295,20 @@ namespace QuantityMeasurementTest
         }
 
 
+        [Test]
+        public void GivenFAHRNEEITandCELSIUS_WhenCompare_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.FAHRNEEIT), 212);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.CELSIUS), 100);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsTrue(result);
+
+        }
+
+
+
+
 
 
 
