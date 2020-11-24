@@ -31,10 +31,26 @@ namespace QuantityMeasurementfinal
                     return 1;
                 case Units.YARD:
                     return 36;
+                case Units.CM:
+                    return 0.4;
+                case Units.GALLON:
+                    return 3.78;
+                case Units.LITRE:
+                    return 1;
+                case Units.ML:
+                    return 0.001;
+                case Units.KG:
+                    return 1;
+                case Units.GM:
+                    return 0.001;
+                case Units.TONNE:
+                    return 1000;
+                case Units.FAHRNEEIT:
+                    return 1;
 
 
             }
-            return 0;
+            return 0.0;
         
         }
     }
