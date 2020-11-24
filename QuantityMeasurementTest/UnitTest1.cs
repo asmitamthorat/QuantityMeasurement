@@ -208,6 +208,30 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void GivenOneGallon_andthreeLitre_WhenCompare_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.GALLON), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 3.78);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsTrue(result);
+
+        }
+
+        [Test]
+        public void GivenOneLitre_andthousandML_WhenCompare_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.ML), 1000);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsTrue(result);
+
+        }
+
+
+
 
 
     }
