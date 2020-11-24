@@ -145,6 +145,16 @@ namespace QuantityMeasurementTest
 
         }
 
+        [Test]
+        public void GivenTwoInches_andFiveCM_WhenCompare_ShouldReturnFalse()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 2);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.CM), 5);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsFalse(result);
+
+        }
 
 
 
