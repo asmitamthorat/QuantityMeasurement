@@ -231,6 +231,34 @@ namespace QuantityMeasurementTest
         }
 
 
+        [Test]
+        public void GivenAdditionofTwoQuantities_ComparedWithGivenAddition_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.GALLON), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 3.78);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 7.56);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+
+        [Test]
+        public void GivenAdditionof_TwoQuantities_ComparedWithGivenAddition_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.ML), 1000);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), 2);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.LITRE), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+
 
 
 
