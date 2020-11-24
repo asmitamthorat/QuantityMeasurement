@@ -28,5 +28,12 @@ namespace QuantityMeasurementfinal
             }
             return this.quanity == units.quanity;
         }
+
+
+        public double AddQuantity(QuantityUnits quantityUnits)
+        {
+            return quantityUnits.quanity + this.quanity;
+
+        }
     }
 }

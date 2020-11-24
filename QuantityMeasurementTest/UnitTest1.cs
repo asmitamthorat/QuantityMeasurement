@@ -146,16 +146,67 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void GivenTwoInches_andFiveCM_WhenCompare_ShouldReturnFalse()
+        public void GivenTwoInches_andFiveCM_WhenCompare_ShouldReturnTrue()
         {
             QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
             QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 2);
             QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.CM), 5);
             bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
 
         }
 
+        [Test]
+        public void GivenAdditionofTwoInchesAndTwoInches_ComparedWithFourInches_ShouldReturnTrue() {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 2);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH),2);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 4);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void GivenAdditionofOneFeetAndTwoInches_ComparedWithFourteenInches_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.FEET), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 2);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 14);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void GivenAdditionofOneFeetAndOneFeet_ComparedWithTweentyFourInches_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.FEET), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.FEET), 1);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 24);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+
+        [Test]
+        public void GivenAdditionofTwoInchesAndtwocm_ComparedWithThreeInches_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 2);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.CM), 2.5);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), 3);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.INCH), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
 
 
 

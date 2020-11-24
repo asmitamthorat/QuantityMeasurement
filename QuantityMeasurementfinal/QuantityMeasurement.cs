@@ -10,5 +10,10 @@ namespace QuantityMeasurementfinal
 
             return firstQuantity.Equals(secondQuantity);
         }
+
+        public double AddQuntities(QuantityUnits firstElement,QuantityUnits secondElement)
+        {
+            return firstElement.AddQuantity(secondElement);
+        }
     }
 }
