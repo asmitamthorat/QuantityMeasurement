@@ -259,6 +259,42 @@ namespace QuantityMeasurementTest
         }
 
 
+        [Test]
+        public void GivenOneKg_andthousandGrams_WhenCompare_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.KG), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.GM), 1000);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsTrue(result);
+
+        }
+
+        [Test]
+        public void GivenOneTonne_andthousandKG_WhenCompare_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.TONNE), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.KG), 1000);
+            bool result = quantityMeasurement.EqualityCheck(firstUnit, SecondUnit);
+            Assert.IsTrue(result);
+
+        }
+
+        [Test]
+        public void GivenAdditionof_TwoQuantities_ComparedWithGivenAdditionInKG_ShouldReturnTrue()
+        {
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            QuantityUnits firstUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.TONNE), 1);
+            QuantityUnits SecondUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.GM), 1000);
+            QuantityUnits Addition = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.KG), 1001);
+            double AdditionOfUnit = quantityMeasurement.AddQuntities(firstUnit, SecondUnit);
+            QuantityUnits newAdditionUnit = new QuantityUnits((double)UnitConversion.GetQuanityValue(UnitConversion.Units.KG), AdditionOfUnit);
+            bool result = quantityMeasurement.EqualityCheck(Addition, newAdditionUnit);
+            Assert.IsTrue(result);
+        }
+
+
 
 
 
